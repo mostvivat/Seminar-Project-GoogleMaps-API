@@ -1,0 +1,32 @@
+<div id="map" style="width:150%;height:800px"></div>
+<script>
+function initMap() {
+  const cit = { lat: 13.8200985, lng: 100.5151624 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: cit,
+  });
+  const contentString =
+    " ดีจ้า";
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    ariaLabel: "cit",
+  });
+  const marker = new google.maps.Marker({
+    position: cit,
+    map,
+    title: "cit",
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  });
+}
+
+window.initMap = initMap;
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaL-2GQAFyjw2g60r43mTSjywMzbesJxQ&callback=initMap"></script> 
+  
